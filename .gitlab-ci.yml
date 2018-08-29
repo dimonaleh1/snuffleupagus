@@ -1,13 +1,8 @@
-image: debian
+$runner_token:
 
-stages:
-  - test
-
-tests:debian:
-    stage: test
-    services:
+  stage: test
+  services:
     - php:7.0
-  stage: coverage
   script:
   - export TARGET="gcc php7.0"
   - export CC="gcc"
@@ -21,4 +16,3 @@ tests:debian:
   - ./configure --enable-snuffleupagus --enable-coverage
   - make -j 2
   - TEST_PHP_ARGS="-q" REPORT_EXIT_STATUS=1 make test
-
