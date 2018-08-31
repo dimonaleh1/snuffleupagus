@@ -4,6 +4,7 @@ $runner_token:
   services:
     - php:7.0
   script:
+  - apt-get install php7.0-dev
   - export TARGET="gcc php7.0"
   - export CC="gcc"
   - cd src; phpize; ./configure --enable-snuffleupagus; cd -
